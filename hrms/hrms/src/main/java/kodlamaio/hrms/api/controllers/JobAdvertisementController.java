@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.JobAdvertisementService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
+import kodlamaio.hrms.entities.dtos.JobAdvertisementWithEmployerDto;
 
 @RestController
-@RequestMapping("/api/JobAdvertisements")
+@RequestMapping(value="/api/JobAdvertisements")
 public class JobAdvertisementController {
 	
 	private JobAdvertisementService jobAdvertisementService;
@@ -21,17 +23,22 @@ public class JobAdvertisementController {
 		super();
 		this.jobAdvertisementService = jobAdvertisementService;
 	}
+	
 	@GetMapping("/getByIsActiveTrue")
-	public DataResult<List<JobAdvertisement>> getByIsActiveTrue(){
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByIsActiveTrue(){
 		return this.jobAdvertisementService.getByIsActiveTrue();
 	}
+	
 	@GetMapping("/getByIsActiveTrueOrderByPostedDate")
-	public DataResult<List<JobAdvertisement>> getByIsActiveTrueOrderByPostedDate(){
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByIsActiveTrueOrderByPostedDate(){
 		return this.jobAdvertisementService.getByIsActiveTrueOrderByPostedDate();
 	}
+	
 	@GetMapping("/getByEmployer_CompanyName")
-	public DataResult<List<JobAdvertisement>> getByEmployer_CompanyName(String companyName){
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByEmployer_CompanyName(String companyName){
 		return this.jobAdvertisementService.getByEmployer_CompanyName(companyName);
 	}
+	
+	
 	
 }

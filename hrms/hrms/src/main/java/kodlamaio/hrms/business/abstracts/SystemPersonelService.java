@@ -12,4 +12,5 @@ public interface SystemPersonelService {
 	DataResult<List<SystemPersonel>> getAll();
 	Result add(SystemPersonel systemPersonel);
 	boolean DoDepartmentsRepeat();
+	
 }

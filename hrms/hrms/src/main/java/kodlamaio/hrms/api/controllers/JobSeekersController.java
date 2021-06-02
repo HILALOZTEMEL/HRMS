@@ -1,29 +1,23 @@
 
   package kodlamaio.hrms.api.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodlamaio.hrms.business.abstracts.JobSeekerService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.entities.concretes.JobSeeker;
+
+@RestController
   
-  
-  
-  import java.util.List;
-  
-  import org.springframework.beans.factory.annotation.Autowired; import
-  org.springframework.web.bind.annotation.GetMapping; import
-  org.springframework.web.bind.annotation.PostMapping; import
-  org.springframework.web.bind.annotation.RequestBody; import
-  org.springframework.web.bind.annotation.RequestMapping; import
-  org.springframework.web.bind.annotation.RestController;
-  
-  import kodlamaio.hrms.business.abstracts.EmployerService; import
-  kodlamaio.hrms.business.abstracts.JobSeekerService; import
-  kodlamaio.hrms.core.utilities.results.DataResult; import
-  kodlamaio.hrms.core.utilities.results.Result; import
-  kodlamaio.hrms.entities.concretes.Employer; import
-  kodlamaio.hrms.entities.concretes.JobSeeker;
-  
-  
-  
-  @RestController
-  
-  @RequestMapping("/api/JobSeekers") 
+  @RequestMapping(value="/api/JobSeekers") 
   public class JobSeekersController {
   
   private JobSeekerService jobSeekerService;
@@ -33,12 +27,15 @@
 	  super(); 
 	  this.jobSeekerService = jobSeekerService; }
   
-  @GetMapping("/getall") public DataResult<List<JobSeeker>> getAll(){
+  @GetMapping("/getall") 
+  public DataResult<List<JobSeeker>> getAll(){
 	  return this.jobSeekerService.getAll();
   
   }
   
-  @PostMapping("/add")//postMapig çünkü biz ekleme yapıyoruz. public Result
-  Result add(@RequestBody JobSeeker jobSeeker) { return
-  this.jobSeekerService.add(jobSeeker); } }
+  @PostMapping(value="/add")//postMapig çünkü biz ekleme yapıyoruz. public Result
+  public Result add(@RequestBody JobSeeker jobSeeker) {
+	  return  this.jobSeekerService.add(jobSeeker); } 
+  
+  }
  

@@ -10,6 +10,7 @@ import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
+import kodlamaio.hrms.entities.dtos.JobAdvertisementWithEmployerDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService{
@@ -23,18 +24,20 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getByIsActiveTrue() {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByIsActiveTrue(),"Data Listelendi ");
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByIsActiveTrue() {
+		return new SuccessDataResult<List<JobAdvertisementWithEmployerDto>>(this.jobAdvertisementDao.getByIsActiveTrue(),"Data Listelendi ");
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getByIsActiveTrueOrderByPostedDate() {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByIsActiveTrueOrderByPostedDate(),"Data Listelendi ");
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByIsActiveTrueOrderByPostedDate() {
+		return new SuccessDataResult<List<JobAdvertisementWithEmployerDto>>(this.jobAdvertisementDao.getByIsActiveTrueOrderByPostedDate(),"Data Listelendi ");
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getByEmployer_CompanyName(String companyName) {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByEmployer_CompanyName(companyName),"Data Listelendi ");
+	public DataResult<List<JobAdvertisementWithEmployerDto>> getByEmployer_CompanyName(String companyName) {
+		return new SuccessDataResult<List<JobAdvertisementWithEmployerDto>>(this.jobAdvertisementDao.getByEmployer_CompanyName(companyName),"Data Listelendi ");
 	}
+
+	
 
 }

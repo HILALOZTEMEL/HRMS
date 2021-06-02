@@ -18,7 +18,7 @@
   
   @RestController
   
-  @RequestMapping("/api/Employers")
+  @RequestMapping(value="/api/Employers")
   
   public class EmployersController {
   
@@ -32,8 +32,8 @@
   
   }
   
-  @PostMapping("/add")//postMapig çünkü biz ekleme yapıyoruz. public Result
-  Result add(@RequestBody Employer employer) { 
+  @PostMapping(value="/add")//postMapig çünkü biz ekleme yapıyoruz. public Result
+  public Result add(@RequestBody Employer employer) { 
 	  return this.employerService.add(employer); }
   
   }

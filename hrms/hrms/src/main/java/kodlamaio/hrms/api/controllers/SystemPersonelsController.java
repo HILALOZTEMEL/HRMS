@@ -16,7 +16,7 @@ import kodlamaio.hrms.entities.concretes.SystemPersonel;
 
 
 @RestController
-@RequestMapping("/api/SystemPersonels")
+@RequestMapping(value="/api/SystemPersonels")
 public class SystemPersonelsController {
 	
 	private SystemPersonelService systemPersonelService;
@@ -31,7 +31,7 @@ public class SystemPersonelsController {
 		return this.systemPersonelService.getAll();
 		
 	}
-	@PostMapping("/add")//postMapig çünkü biz ekleme yapıyoruz.
+	@PostMapping(value="/add")//postMapig çünkü biz ekleme yapıyoruz.
 	public Result add(@RequestBody SystemPersonel systemPersonel) {
 		return this.systemPersonelService.add(systemPersonel);
 	}
